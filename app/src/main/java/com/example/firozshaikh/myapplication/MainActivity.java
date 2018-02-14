@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         lblDegree = findViewById(R.id.lblDegree);
     }
 
-
     public void rotateWine(View view) {
 
         final View v = view;
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
                 secondAnimation.setRepeatCount(0);
                 secondAnimation.setDuration(1500);
                 secondAnimation.setInterpolator(new LinearInterpolator());
-
                 secondAnimatorSet.play(secondAnimation);
                 secondAnimatorSet.start();
                 secondAnimatorSet.addListener(new Animator.AnimatorListener() {
@@ -60,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onAnimationStart(Animator animator) {}
 
                     @Override
-                    public void onAnimationEnd(Animator animator) {
-
+                    public void onAnimationEnd(Animator animator)
+                    {
                         currentValue = displayButtonIsPressed ? currentValue : 0;
                         secondAnimatorSet.removeAllListeners();
                         clearAnimation();
@@ -69,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                         {
                             rotateWine(v);
                         }
-
                     }
 
                     @Override
