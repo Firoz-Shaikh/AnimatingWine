@@ -57,9 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 secondAnimatorSet.start();
                 secondAnimatorSet.addListener(new Animator.AnimatorListener() {
                     @Override
-                    public void onAnimationStart(Animator animator) {
-
-                    }
+                    public void onAnimationStart(Animator animator) {}
 
                     @Override
                     public void onAnimationEnd(Animator animator) {
@@ -75,14 +73,10 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onAnimationCancel(Animator animator) {
-
-                    }
+                    public void onAnimationCancel(Animator animator) {}
 
                     @Override
-                    public void onAnimationRepeat(Animator animator) {
-
-                    }
+                    public void onAnimationRepeat(Animator animator) {}
                 });
             }
         }
@@ -94,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
         currentValue = + wineBottle.getRotation();
         lblDegree.setText("Rotation:- "+currentValue);
         clearAnimation();
-
     }
+
     public void clearAnimation()
     {
         wineBottle.clearAnimation();
