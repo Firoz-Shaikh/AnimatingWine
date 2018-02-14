@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private AnimatorSet secondAnimatorSet = new AnimatorSet();
     private float currentValue = 0;
     private boolean displayButtonIsPressed = false;
+    private Button btnStart, btnDegree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +28,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         wineBottle = findViewById(R.id.wineBottle);
         lblDegree = findViewById(R.id.lblDegree);
+        btnStart = findViewById(R.id.btnstart);
+        btnDegree = findViewById(R.id.btnDegree);
     }
 
     public void rotateWine(View view) {
-
+        btnStart.setEnabled(false);
+        btnDegree.setEnabled(true);
         final View v = view;
         if(animation==null  || !animation.isRunning())
         {
@@ -38,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 clearAnimation();
                 animation = ObjectAnimator.ofFloat(wineBottle, "rotation", 0, 360);
                 animation.setRepeatCount(ObjectAnimator.INFINITE);
-                animation.setDuration(1500);
+                animation.setDuration(3600);
                 animation.setInterpolator(new LinearInterpolator());
                 animatorSet.play(animation);
                 animatorSet.start();
@@ -49,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 displayButtonIsPressed = false;
                 secondAnimation = ObjectAnimator.ofFloat(wineBottle, "rotation",currentValue,360);
                 secondAnimation.setRepeatCount(0);
-                secondAnimation.setDuration(1500);
+                secondAnimation.setDuration(new Double(3600 - (currentValue * 10)).longValue());
                 secondAnimation.setInterpolator(new LinearInterpolator());
                 secondAnimatorSet.play(secondAnimation);
                 secondAnimatorSet.start();
@@ -64,9 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         secondAnimatorSet.removeAllListeners();
                         clearAnimation();
                         if(!displayButtonIsPressed)
-                        {
                             rotateWine(v);
-                        }
                     }
 
                     @Override
@@ -81,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void displayWineDegree(View view)
     {
+        btnDegree.setEnabled(false);
+        btnStart.setEnabled(true);
         displayButtonIsPressed = true;
         currentValue = + wineBottle.getRotation();
         lblDegree.setText("Rotation:- "+currentValue);

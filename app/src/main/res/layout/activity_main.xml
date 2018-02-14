@@ -35,10 +35,12 @@
             android:layout_centerHorizontal="true"
             android:onClick="rotateWine"/>
         <Button
+            android:id="@+id/btnDegree"
             android:onClick="displayWineDegree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Degree"/>
+            android:text="Degree"
+            android:enabled="false" />
     </LinearLayout>
 
     </LinearLayout>
