@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private AnimatorSet secondAnimatorSet = new AnimatorSet();
     private float currentValue = 0;
     private boolean displayButtonIsPressed = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,19 +36,16 @@ public class MainActivity extends AppCompatActivity {
         {
             if(currentValue == 0)
             {
-
                 clearAnimation();
                 animation = ObjectAnimator.ofFloat(wineBottle, "rotation", 0, 360);
                 animation.setRepeatCount(ObjectAnimator.INFINITE);
                 animation.setDuration(1500);
                 animation.setInterpolator(new LinearInterpolator());
                 animatorSet.play(animation);
-
                 animatorSet.start();
             }
             else
             {
-
                 clearAnimation();
                 displayButtonIsPressed = false;
                 secondAnimation = ObjectAnimator.ofFloat(wineBottle, "rotation",currentValue,360);
@@ -86,12 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-
             }
-
-
         }
-
     }
 
     public void displayWineDegree(View view)
