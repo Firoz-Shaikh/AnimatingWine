@@ -22,3 +22,7 @@ MyApplication/.idea/libraries/com_android_support_support_media_compat_26_1_0.xm
 MyApplication/.idea/libraries/com_android_support_support_fragment_26_1_0.xml
 MyApplication/.idea/libraries/com_android_support_support_core_utils_26_1_0.xml
 MyApplication/.idea/libraries/com_android_support_support_compat_26_1_0.xml
+.idea/gradle.xml
+.idea/misc.xml
+.idea/runConfigurations.xml
+.idea/modules.xml
